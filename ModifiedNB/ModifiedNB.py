@@ -1,11 +1,11 @@
-from sklearn.naive_bayes import BaseDiscreteNBMixin
+from sklearn.naive_bayes import _BaseDiscreteNB
 from sklearn.utils.extmath import safe_sparse_dot
 from sklearn.utils.validation import check_is_fitted
 from sklearn.utils import check_array
 from scipy.sparse import issparse
 import numpy as np
 
-class ModifiedNB(BaseDiscreteNBMixin):
+class ModifiedNB(_BaseDiscreteNB):
     """
     References
     ----------
@@ -22,6 +22,7 @@ class ModifiedNB(BaseDiscreteNBMixin):
         self.alpha = alpha
         self.fit_prior = fit_prior
         self.class_prior = class_prior
+        self.force_alpha = True
 
     def _count(self, X, Y):
         """Count and smooth feature occurrences."""
