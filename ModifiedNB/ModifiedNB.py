@@ -1,12 +1,11 @@
-from sklearn.naive_bayes import BaseDiscreteNB
+from sklearn.naive_bayes import BaseDiscreteNBMixin
 from sklearn.utils.extmath import safe_sparse_dot
 from sklearn.utils.validation import check_is_fitted
 from sklearn.utils import check_array
 from scipy.sparse import issparse
 import numpy as np
 
-
-class ModifiedNB(BaseDiscreteNB):
+class ModifiedNB(BaseDiscreteNBMixin):
     """
     References
     ----------
